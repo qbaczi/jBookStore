@@ -28,20 +28,6 @@ public class Book {
         this.rating = rating;
     }
 
-//    public Book(String dataFromUser) {
-//        String[] splittedData =dataFromUser.split(",");
-//        if(splittedData.length == 3){
-//            this.title = splittedData[0];
-//            this.author = splittedData[1];
-//            this.type = splittedData[2];
-//        }else{
-//            this.title = splittedData[0];
-//            this.author = splittedData[1];
-//            this.price = Double.parseDouble(splittedData[2]);
-//            this.type = splittedData[3];
-//            this.rating = Double.parseDouble(splittedData[4]);
-//        }
-//    }
 
     public String getTitle() {
         return title;
