@@ -1,8 +1,5 @@
 package pl.sda.bookstore;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Book {
 
     private final String title;

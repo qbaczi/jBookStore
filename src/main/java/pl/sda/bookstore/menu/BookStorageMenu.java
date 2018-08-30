@@ -3,6 +3,7 @@ package pl.sda.bookstore.menu;
 import pl.sda.bookstore.Book;
 import pl.sda.bookstore.BookStorage;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class BookStorageMenu {
@@ -12,15 +13,23 @@ public class BookStorageMenu {
     public BookStorageMenu(Scanner sc, BookStorage bookStorage) {
         this.sc = sc;
         this.bookStorage = bookStorage;
+        initBooks();
     }
+
+    private void initBooks() {
+        List<Book> books = BookMenager.createBooks();
+        bookStorage.addBooksToStorage(books);
+    }
+
 
     public void showMenu() {
         while(true) {
             System.out.println("1. Zwiększ stan magazynowy książki. Podaj: tytuł, autor, ilość");
             System.out.println("2. Zmniejsz stan magazynowy książki. Podaj: tytuł, autor, ilość");
             System.out.println("3. Pokaż stan magazynowy");
-            System.out.println("4. Wyświetl wszystkie książki ze stanem poniżej 10");
-            System.out.println("5. Powrót");
+            System.out.println("4. Wyświetl wszystkie książki posortowane alfabetycznie po tytule");
+            System.out.println("5. Wyświetl wszystkie książki posortowane po ratingu");
+            System.out.println("6. Powrót");
 
             int option = sc.nextInt();
             sc.nextLine();
@@ -38,9 +47,11 @@ public class BookStorageMenu {
                     bookStorage.showStorageState();
                     break;
                 case 4:
-                    System.out.println("NOT SUPPORTED");
+                   bookStorage.sortByTitle();
                     break;
                 case 5:
+                    System.out.println();
+                case 6:
                     return;
             }
         }

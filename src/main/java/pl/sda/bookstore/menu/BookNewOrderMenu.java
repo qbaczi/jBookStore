@@ -7,14 +7,14 @@ import pl.sda.bookstore.OrderManager;
 
 import java.util.Scanner;
 
-public class BookNewOrderMenu {
+class BookNewOrderMenu {
     private final Scanner sc;
     private BookCollectionMenu bookCollectionMenu;
     private BookCollection bookCollection;
     private OrderManager orderManager;
 
 
-    public BookNewOrderMenu(Scanner sc, BookCollectionMenu bookCollectionMenu, OrderManager orderManager) {
+    BookNewOrderMenu(Scanner sc, BookCollectionMenu bookCollectionMenu, OrderManager orderManager) {
 
         this.sc = sc;
         this.bookCollectionMenu = bookCollectionMenu;
@@ -22,8 +22,7 @@ public class BookNewOrderMenu {
     }
 
 
-
-    public void showMenu() {
+    void showMenu() {
         System.out.println("Podaj swoje dane w formacie: imię, nazwisko, adres");
         sc.nextLine();
 

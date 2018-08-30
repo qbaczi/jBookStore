@@ -1,6 +1,6 @@
 package pl.sda.bookstore;
 
-import java.util.Map;
+import java.util.*;
 
 public class BookStorage {
 
@@ -18,6 +18,13 @@ public class BookStorage {
         storage.put(book, storage.get(book) + diff);
     }
 
+    public void addBooksToStorage(List<Book> books){
+        for (Book book : books) {
+            addNewBookToStorage(book);
+
+        }
+    }
+
     public void showStorageState(){
         System.out.println();
         System.out.println("===========================================================================");
@@ -27,5 +34,10 @@ public class BookStorage {
             int value = book.getValue();
             System.out.println(key + ", " + value);
         }
+    }
+
+    public void sortByTitle() {
+        Set<Book> bookSet = storage.keySet();
+        bookSet.stream().sorted(Comparator.comparing(Book::getTitle)).forEach(System.out::println);
     }
 }
