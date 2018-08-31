@@ -4,6 +4,8 @@ import pl.sda.bookstore.Book;
 import pl.sda.bookstore.BookCollection;
 import pl.sda.bookstore.Order;
 import pl.sda.bookstore.OrderManager;
+import pl.sda.bookstore.customer.Customer;
+import pl.sda.bookstore.customer.CustomerMenager;
 
 import java.util.Scanner;
 
@@ -26,8 +28,10 @@ class BookNewOrderMenu {
         System.out.println("Podaj swoje dane w formacie: imię, nazwisko, adres");
         sc.nextLine();
 
-        String customerData = sc.nextLine();
-        Order order = new Order(customerData);
+        Customer customer = CustomerMenager.createCustomer(sc);
+        Order order = new Order(customer);
+
+
 //TODO tutaj należy dodać sobie jakieś inicjalizowanie zamówienia na podstawie wprowadzonych danych
 
         while (true) {

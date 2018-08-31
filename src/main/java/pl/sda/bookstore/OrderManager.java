@@ -1,6 +1,7 @@
 package pl.sda.bookstore;
 
 import pl.sda.bookstore.Order;
+import pl.sda.bookstore.customer.Customer;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -25,7 +26,15 @@ public class OrderManager {
         return orderQueue.remove();
     }
 
-    public void removeOrder(String customerDataInOrderToRemove) {
-        //TODO Dobre żeby pokazać dziedziczenie !!!
+    public void removeOrder(Customer customer) {
+
+        for (Order order : orderQueue) {
+            if (order.getCustomer().equals(customer)) {
+                orderQueue.remove(order);
+            } else {
+                System.out.println("Brak zamówienia");
+            }
+        }
     }
+
 }

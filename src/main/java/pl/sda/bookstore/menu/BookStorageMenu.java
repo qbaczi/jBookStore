@@ -50,7 +50,7 @@ public class BookStorageMenu {
                    bookStorage.sortByTitle();
                     break;
                 case 5:
-                    System.out.println();
+                    bookStorage.sortByRating();
                 case 6:
                     return;
             }

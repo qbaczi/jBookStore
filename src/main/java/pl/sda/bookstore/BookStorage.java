@@ -40,4 +40,8 @@ public class BookStorage {
         Set<Book> bookSet = storage.keySet();
         bookSet.stream().sorted(Comparator.comparing(Book::getTitle)).forEach(System.out::println);
     }
+    public void sortByRating() {
+        Set<Book> bookSet = storage.keySet();
+        bookSet.stream().sorted(Comparator.comparing(Book::getRating)).forEach(System.out::println);
+    }
 }

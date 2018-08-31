@@ -1,6 +1,8 @@
 package pl.sda.bookstore.menu;
 
 import pl.sda.bookstore.OrderManager;
+import pl.sda.bookstore.customer.Customer;
+import pl.sda.bookstore.customer.CustomerMenager;
 
 import java.util.Scanner;
 
@@ -16,7 +18,7 @@ public class BookCurrentOrdersMenu {
     public void showMenu() {
         while(true) {
             System.out.println("1. Pobierz zamówienie do realizacji - szczęśliwe wysyłanie! - jeśli się nie powiedzie tj. na magazynie nie ma ksiżek powinno nas przenieść do innego menu");
-            System.out.println("2. Usuń zamówienie z listy zamówień, Podaj imię, nazwisko, adres zamawiajcego");
+            System.out.println("2. Usuń zamówienie z listy zamówień, Podaj dane zamawiającego");
             System.out.println("3. Powrót");
 
             int option = sc.nextInt();
@@ -27,8 +29,8 @@ public class BookCurrentOrdersMenu {
                     orderManager.getNextOrder();
                     break;
                 case 2:
-                    String customerDataInOrderToRemove = sc.nextLine();
-                    orderManager.removeOrder(customerDataInOrderToRemove);
+                    Customer customer = CustomerMenager.createCustomer(sc);
+                    orderManager.removeOrder(customer);
                     break;
                 case 3:
                     return;

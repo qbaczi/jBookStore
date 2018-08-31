@@ -1,22 +1,18 @@
 package pl.sda.bookstore;
 
+import pl.sda.bookstore.customer.Customer;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
 
     private final List<Book> books = new ArrayList<>();
+private final Customer customer;
 
-    private final String name;
-    private final String surname;
-    private final String address;
 
-    public Order(String user) {
-        String[] split = user.split(",");
-
-        this.name = split[0];
-        this.surname = split[1];
-        this.address = split[2];
+    public Order(Customer customer) {
+       this.customer = customer;
     }
 
     public void addBook(Book book) {
@@ -45,5 +41,9 @@ public class Order {
             sum += book.getPrice();
         }
         return sum;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 }
